@@ -26,10 +26,3 @@ git remote add origin https://github.com/adnanhakimuddin/dotnet-portfolio.git
 git push -u origin main
 ```
 
-Then enable Pages as in step 3 above.
-
-## Content notes
-
-- Contact details (email, phone, LinkedIn) are already filled in from the resume.
-- The hero shows an animated `GET /api/v1/engineers/adnan-hakimuddin` → `200 OK` JSON response.
-- Add project links or a resume-download button anytime — just ask.
