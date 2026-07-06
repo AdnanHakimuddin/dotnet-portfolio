@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Adnan Hakimuddin — Senior .NET Developer</title>
+<meta name="description" content="Senior .NET Developer with 6+ years building enterprise ERP systems and secure Web APIs. C#, .NET Core, ASP.NET, SQL Server, Azure DevOps, CI/CD." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500..800&family=Instrument+Sans:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0D1220;
+  --panel:#131A2C;
+  --panel-2:#182136;
+  --line:#233049;
+  --text:#E9EDF5;
+  --muted:#96A2B8;
+  --purple:#8B7CF8;        /* .NET purple — primary accent */
+  --purple-soft:#2A2650;
+  --green:#63D68F;         /* HTTP 200 / JSON strings */
+  --amber:#F0C34E;         /* JSON numbers */
+  --cyan:#6FC7DE;          /* JSON keys */
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:"Instrument Sans",system-ui,sans-serif;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--purple);color:#fff}
+a{color:inherit}
+.mono{font-family:"JetBrains Mono",monospace;font-size:.76rem;letter-spacing:.05em;text-transform:uppercase}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"Manrope",sans-serif;letter-spacing:-.02em}
+
+/* ---------- nav ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+.brand{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:.9rem;text-decoration:none;white-space:nowrap}
+.brand .slash{color:var(--purple)}
+.nav-links{display:flex;gap:26px;font-size:.92rem}
+.nav-links a{text-decoration:none;color:var(--muted);transition:color .15s}
+.nav-links a:hover{color:var(--text)}
+.nav .hire{
+  font-family:"JetBrains Mono",monospace;font-size:.78rem;font-weight:600;
+  text-decoration:none;background:var(--purple);color:#0D1220;
+  padding:.6em 1.2em;border-radius:999px;white-space:nowrap;
+  transition:transform .15s ease, filter .15s ease;
+}
+.nav .hire:hover{transform:translateY(-1px);filter:brightness(1.1)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-offset:3px;border-radius:4px}
+
+/* ---------- hero ---------- */
+.hero{padding:84px 0 96px;position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(700px 420px at 82% 8%, rgba(139,124,248,.13), transparent 65%);
+}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center;position:relative}
+.eyebrow{color:var(--purple);font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:.7em}
+.eyebrow::before{content:"";width:36px;height:2px;background:var(--purple)}
+h1{font-weight:800;font-size:clamp(2.3rem,4.4vw,3.6rem);line-height:1.1;margin-bottom:22px}
+h1 .accent{color:var(--purple)}
+.lede{font-size:1.13rem;color:var(--muted);max-width:32em;margin-bottom:30px}
+.lede strong{color:var(--text);font-weight:600}
+.btn-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-block;text-decoration:none;font-weight:600;font-size:.97rem;
+  padding:.85em 1.6em;border-radius:999px;transition:transform .15s ease, filter .15s;
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.primary{background:var(--purple);color:#0D1220;box-shadow:0 10px 30px -10px rgba(139,124,248,.5)}
+.btn.ghost{border:1.5px solid var(--line);color:var(--text)}
+.hero-meta{margin-top:30px;color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.03em}
+.hero-meta .sep{color:var(--purple);margin:0 .6em}
+
+/* ---------- API panel (signature) ---------- */
+.api{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:0 30px 70px -30px rgba(0,0,0,.7);overflow:hidden;
+  font-family:"JetBrains Mono",monospace;font-size:.82rem;line-height:1.7;
+}
+.api-bar{
+  display:flex;align-items:center;gap:10px;padding:11px 16px;
+  border-bottom:1px solid var(--line);background:var(--panel-2);
+}
+.api-bar .dot{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.api-bar .title{margin-left:6px;color:var(--muted);font-size:.72rem;letter-spacing:.04em}
+.req{padding:14px 18px;border-bottom:1px solid var(--line);color:var(--muted);font-size:.78rem}
+.req .verb{color:var(--green);font-weight:600}
+.req .path{color:var(--text)}
+.req .auth{display:block;margin-top:4px}
+.req .auth b{color:var(--cyan);font-weight:400}
+.resp-head{display:flex;align-items:center;gap:12px;padding:12px 18px 0}
+.status{
+  background:rgba(99,214,143,.12);color:var(--green);border:1px solid rgba(99,214,143,.35);
+  border-radius:6px;padding:.2em .7em;font-size:.72rem;font-weight:600;
+}
+.latency{color:var(--muted);font-size:.72rem}
+.resp{padding:10px 18px 20px;white-space:pre;overflow-x:auto;min-height:275px}
+.j-key{color:var(--cyan)}
+.j-str{color:var(--green)}
+.j-num{color:var(--amber)}
+.j-pun{color:var(--muted)}
+.cursor{display:inline-block;width:8px;background:var(--purple);animation:blink 1s steps(1) infinite;height:1em;vertical-align:-.15em}
+@keyframes blink{50%{opacity:0}}
+
+/* ---------- sections ---------- */
+section{padding:88px 0}
+.sec-head{max-width:640px;margin-bottom:52px}
+.sec-head .mono{color:var(--purple);margin-bottom:12px;display:block}
+h2{font-weight:800;font-size:clamp(1.65rem,2.9vw,2.3rem);line-height:1.15}
+.sec-head p{margin-top:14px;color:var(--muted)}
+
+/* ---------- stack as architecture tiers ---------- */
+.tiers{position:relative;display:flex;flex-direction:column;gap:14px}
+.tiers::before{
+  content:"";position:absolute;left:26px;top:10px;bottom:10px;width:2px;
+  background:linear-gradient(var(--purple), transparent);opacity:.5;
+}
+.tier{
+  position:relative;margin-left:52px;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 26px;display:grid;grid-template-columns:210px 1fr;gap:8px 28px;align-items:baseline;
+  transition:border-color .2s, transform .2s;
+}
+.tier:hover{border-color:var(--purple);transform:translateX(4px)}
+.tier::before{
+  content:"";position:absolute;left:-33px;top:30px;width:12px;height:12px;border-radius:50%;
+  background:var(--bg);border:2.5px solid var(--purple);
+}
+.tier h3{font-size:1.02rem;font-weight:700}
+.tier .layer{display:block;color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  font-family:"JetBrains Mono",monospace;font-size:.74rem;
+  border:1px solid var(--line);border-radius:7px;padding:.35em .75em;color:var(--text);
+  background:var(--panel-2);
+}
+.chip.hot{border-color:rgba(139,124,248,.55);color:var(--purple);background:var(--purple-soft)}
+
+/* ---------- experience timeline ---------- */
+.xp{display:flex;flex-direction:column;gap:0}
+.job{
+  display:grid;grid-template-columns:190px 1fr;gap:28px;
+  padding:34px 0;border-top:1px solid var(--line);
+}
+.job:last-child{border-bottom:1px solid var(--line)}
+.job .when{font-family:"JetBrains Mono",monospace;font-size:.76rem;color:var(--muted);letter-spacing:.03em;padding-top:5px}
+.job .when .now{display:inline-block;margin-top:8px;color:var(--green);border:1px solid rgba(99,214,143,.35);border-radius:6px;padding:.15em .6em;font-size:.68rem}
+.job h3{font-size:1.18rem;font-weight:750}
+.job .co{color:var(--purple);font-weight:600}
+.job ul{margin-top:12px;list-style:none;display:flex;flex-direction:column;gap:8px}
+.job li{color:var(--muted);padding-left:20px;position:relative;font-size:.97rem}
+.job li::before{content:"›";position:absolute;left:2px;color:var(--purple);font-weight:700}
+.job li b{color:var(--text);font-weight:600}
+
+/* ---------- highlights ---------- */
+.hl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.hl{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px;transition:border-color .2s, transform .2s;
+}
+.hl:hover{border-color:var(--purple);transform:translateY(-4px)}
+.hl .mono{color:var(--purple);display:block;margin-bottom:10px;font-size:.68rem}
+.hl h3{font-size:1.08rem;font-weight:700;margin-bottom:8px}
+.hl p{color:var(--muted);font-size:.94rem}
+
+/* ---------- certs & education ---------- */
+.cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cred{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px;
+}
+.cred .mono{color:var(--muted);font-size:.66rem;display:block;margin-bottom:10px}
+.cred h3{font-size:1rem;font-weight:700;margin-bottom:6px}
+.cred p{color:var(--muted);font-size:.88rem}
+
+/* ---------- contact ---------- */
+.contact{padding:96px 0 110px}
+.contact-box{
+  background:linear-gradient(160deg, var(--panel-2), var(--panel));
+  border:1px solid var(--line);border-radius:22px;
+  padding:clamp(40px,6vw,70px);text-align:center;position:relative;overflow:hidden;
+}
+.contact-box::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(560px 280px at 50% -30%, rgba(139,124,248,.16), transparent 70%);
+}
+.contact-box h2{max-width:17em;margin:0 auto 16px;position:relative}
+.contact-box p{color:var(--muted);max-width:33em;margin:0 auto 34px;position:relative}
+.contact-box .btn-row{justify-content:center;position:relative}
+.contact-lines{margin-top:30px;position:relative;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:.8rem}
+.contact-lines a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px;transition:border-color .15s}
+.contact-lines a:hover{border-color:var(--purple)}
+
+footer{border-top:1px solid var(--line);padding:28px 0 40px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.84rem}
+.foot .mono{font-size:.68rem}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+  .cursor{display:none}
+}
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .hl-grid{grid-template-columns:1fr}
+  .cred-grid{grid-template-columns:1fr}
+  .tier{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+@media (max-width:600px){
+  .hero{padding:56px 0 68px}
+  section{padding:64px 0}
+  .job{grid-template-columns:1fr;gap:10px}
+  .tiers::before{left:14px}
+  .tier{margin-left:34px;padding:18px 20px}
+  .tier::before{left:-27px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">adnan<span class="slash">/</span>hakimuddin</a>
+    <nav class="nav-links">
+      <a href="#stack">Stack</a>
+      <a href="#experience">Experience</a>
+      <a href="#work">Highlights</a>
+      <a href="#credentials">Credentials</a>
+    </nav>
+    <a class="hire" href="mailto:adnanhakimuddin12@gmail.com">Work with me</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow mono">Senior .NET Developer · Tech Lead</p>
+      <h1>Enterprise systems that <span class="accent">stay up</span>, scale, and ship on time.</h1>
+      <p class="lede">I'm Adnan Hakimuddin — <strong>6+ years</strong> designing and building enterprise-grade <strong>ERP systems and web applications</strong> with C#, .NET Core, ASP.NET Web API, and SQL Server. From secure JWT-authenticated APIs to real-time WebSocket features, I turn business requirements into software teams can rely on.</p>
+      <div class="btn-row">
+        <a class="btn primary" href="mailto:adnanhakimuddin12@gmail.com">Get in touch</a>
+        <a class="btn ghost" href="https://linkedin.com/in/adnanhakimuddin" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <p class="hero-meta">Karachi, Pakistan<span class="sep">/</span>Taking on client projects</p>
+    </div>
+
+    <!-- signature: API response panel -->
+    <div class="api" aria-label="Example API response describing Adnan's profile">
+      <div class="api-bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="title">api-client — production</span>
+      </div>
+      <div class="req">
+        <span class="verb">GET</span> <span class="path">/api/v1/engineers/adnan-hakimuddin</span> HTTP/1.1
+        <span class="auth">Authorization: <b>Bearer</b> eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…</span>
+      </div>
+      <div class="resp-head">
+        <span class="status">200 OK</span>
+        <span class="latency">38 ms · application/json</span>
+      </div>
+      <div class="resp" id="json"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STACK ================= -->
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono">// tech stack</span>
+      <h2>The full stack of an enterprise system — and I've built every layer.</h2>
+      <p>Not a list of buzzwords: this is how the systems I build are actually structured, from the pipeline that ships them to the database that anchors them.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier reveal">
+        <div><h3>Delivery &amp; docs</h3><span class="layer">what clients touch</span></div>
+        <div class="chips">
+          <span class="chip">HTML</span><span class="chip">JavaScript</span><span class="chip">JSON</span>
+          <span class="chip">Swagger / OpenAPI</span><span class="chip">Dynamic API-driven UI</span>
+        </div>
+      </div>
+      <div class="tier reveal">
+        <div><h3>API layer</h3><span class="layer">contracts &amp; security</span></div>
+        <div class="chips">
+          <span class="chip hot">ASP.NET Web API</span><span class="chip hot">RESTful APIs</span>
+          <span class="chip">JWT Authentication</span><span class="chip">API Versioning</span><span class="chip">WebSockets</span>
+        </div>
+      </div>
+      <div class="tier reveal">
+        <div><h3>Application core</h3><span class="layer">business logic</span></div>
+        <div class="chips">
+          <span class="chip hot">C#</span><span class="chip hot">.NET Core</span><span class="chip">.NET Framework</span>
+          <span class="chip">ASP.NET MVC</span><span class="chip">Entity Framework</span><span class="chip">LINQ</span>
+        </div>
+      </div>
+      <div class="tier reveal">
+        <div><h3>Data layer</h3><span class="layer">the source of truth</span></div>
+        <div class="chips">
+          <span class="chip hot">SQL Server</span><span class="chip">Stored Procedures</span>
+          <span class="chip">Query Optimization</span><span class="chip">Database Design</span>
+        </div>
+      </div>
+      <div class="tier reveal">
+        <div><h3>Platform &amp; pipeline</h3><span class="layer">how it ships</span></div>
+        <div class="chips">
+          <span class="chip hot">Azure DevOps</span><span class="chip hot">CI/CD Pipelines</span>
+          <span class="chip">Azure</span><span class="chip">AWS</span><span class="chip">Git</span><span class="chip">Agile / Scrum</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono">// experience</span>
+      <h2>Six years, three companies, one constant: systems businesses run on.</h2>
+    </div>
+    <div class="xp">
+      <!-- article class="job reveal">
+        <div class="when">2026 — Present<br><span class="now">current</span></div>
+        <div>
+          <h3>Founder · <span class="co">[YOUR COMPANY NAME]</span></h3>
+          <ul>
+            <li>Founded a software company delivering <b>enterprise .NET solutions</b> — ERP systems, secure Web APIs, and custom business applications.</li>
+            <li>Bringing 6+ years of hands-on engineering and technical leadership directly to clients, without agency overhead.</li>
+            <li>Currently <b>taking on projects</b> — from system audits to full builds.</li>
+          </ul>
+        </div>
+      </article-->
+      <article class="job reveal">
+        <div class="when">Jul 2024 — Jun 2026</div>
+        <div>
+          <h3>Tech Lead · <span class="co">Meri Gari Pvt Ltd</span></h3>
+          <ul>
+            <li>Designed and implemented <b>ERP solutions in .NET and C#</b>, improving operational efficiency across the business.</li>
+            <li>Led development of the <b>Meri Gari app</b>, owning functionality, performance, and user experience end to end.</li>
+            <li>Collaborated with cross-functional teams to gather requirements and deliver scalable solutions.</li>
+            <li><b>Mentored junior developers</b> and enforced best practices through code reviews and testing.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="job reveal">
+        <div class="when">Jun 2022 — Mar 2024</div>
+        <div>
+          <h3>Senior Software Engineer · <span class="co">Zaraye</span></h3>
+          <ul>
+            <li>Led development of <b>ERP modules in .NET Core and ASP.NET Web API</b> covering core business domains: <b>Ledgers, Payables, Receivables</b>.</li>
+            <li>Built secure RESTful APIs with <b>JWT authentication</b> and implemented <b>API versioning</b>.</li>
+            <li>Integrated real-time features using <b>WebSockets</b> for improved user interaction.</li>
+            <li>Created <b>dynamic, API-driven field rendering</b> with JSON and HTML templates for flexible business logic.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="job reveal">
+        <div class="when">Jan 2018 — Jun 2021</div>
+        <div>
+          <h3>.NET Developer · <span class="co">NopCommerce</span></h3>
+          <ul>
+            <li>Built and managed web applications using <b>C#, ASP.NET Core, and MVC</b>.</li>
+            <li><b>Optimized database design and SQL queries</b> for efficiency at scale.</li>
+            <li>Worked fully agile — sprint planning, daily stand-ups, and iterative delivery.</li>
+            <li>Translated client requirements into technical solutions and resolved defects to keep systems running smoothly.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HIGHLIGHTS ================= -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono">// selected work</span>
+      <h2>Things I'm proud of building.</h2>
+    </div>
+    <div class="hl-grid">
+      <article class="hl reveal">
+        <span class="mono">ERP · Fintech modules</span>
+        <h3>Financial core of an ERP: Ledgers, Payables, Receivables</h3>
+        <p>Architected and shipped the accounting backbone of a B2B platform in .NET Core and Web API — the modules a business trusts its money to. Secure, versioned, and built to handle real transaction volume.</p>
+      </article>
+      <article class="hl reveal">
+        <span class="mono">Leadership · Product</span>
+        <h3>Meri Gari app — led from requirements to release</h3>
+        <p>As Tech Lead, owned the full lifecycle of the flagship app: architecture decisions, performance, code quality through reviews, and mentoring the team building it.</p>
+      </article>
+      <article class="hl reveal">
+        <span class="mono">Real-time · WebSockets</span>
+        <h3>Live features over WebSockets</h3>
+        <p>Brought real-time interaction into an enterprise ERP — instant updates without refresh — improving how users worked with the system day to day.</p>
+      </article>
+      <article class="hl reveal">
+        <span class="mono">API design · Flexibility</span>
+        <h3>Dynamic, API-driven field rendering</h3>
+        <p>Designed a JSON + HTML template system where the API defines what the UI renders — letting business logic change without redeploying the front end.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CREDENTIALS ================= -->
+<section id="credentials">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono">// credentials</span>
+      <h2>Education &amp; certifications</h2>
+    </div>
+    <div class="cred-grid">
+      <div class="cred reveal">
+        <span class="mono">Diploma · 2014 — 2017</span>
+        <h3>ACCP PRO</h3>
+        <p>Aptech — professional software engineering program covering full-stack application development.</p>
+      </div>
+      <div class="cred reveal">
+        <span class="mono">Certificate · May 2019</span>
+        <h3>AI Developer Certificate</h3>
+        <p>PIAIC — Presidential Initiative for Artificial Intelligence &amp; Computing.</p>
+      </div>
+      <div class="cred reveal">
+        <span class="mono">Certificate · May 2019</span>
+        <h3>AI for Everyone</h3>
+        <p>deeplearning.ai on Coursera — foundations of applied artificial intelligence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <h2>Have a system to build? Let's build it right the first time.</h2>
+      <p>I run my own software company, built on 6+ years of enterprise .NET engineering. Whether you need an ERP module, a secure API, a system rescued, or a product built from scratch — tell me what you're building and I'll tell you honestly how I can help.</p>
+      <div class="btn-row">
+        <a class="btn primary" href="mailto:adnanhakimuddin12@gmail.com?subject=Opportunity%20for%20Adnan">Email me</a>
+        <a class="btn ghost" href="https://linkedin.com/in/adnanhakimuddin" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
+      </div>
+      <div class="contact-lines">
+        <a href="mailto:adnanhakimuddin12@gmail.com">adnanhakimuddin12@gmail.com</a>
+        <a href="tel:+923328265515">+92 332 8265515</a>
+        <span style="color:var(--muted)">Karachi, Pakistan</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="yr"></span> Adnan Hakimuddin</span>
+    <span class="mono">Built on .NET · Shipping C# since 2018</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ---- typed JSON response (signature) ---- */
+const jsonEl = document.getElementById('json');
+const tokens = [
+  ['pun','{\n  '],['key','"status"'],['pun',': '],['num','200'],['pun',',\n  '],
+  ['key','"engineer"'],['pun',': {\n    '],
+  ['key','"name"'],['pun',': '],['str','"Adnan Hakimuddin"'],['pun',',\n    '],
+  ['key','"role"'],['pun',': '],['str','"Senior .NET Developer"'],['pun',',\n    '],
+  ['key','"experience_years"'],['pun',': '],['num','6'],['pun',',\n    '],
+  ['key','"location"'],['pun',': '],['str','"Karachi, PK"'],['pun',',\n    '],
+  ['key','"core_stack"'],['pun',': ['],['str','"C#"'],['pun',', '],['str','".NET Core"'],['pun',', '],['str','"Web API"'],['pun',', '],['str','"SQL Server"'],['pun','],\n    '],
+  ['key','"current"'],['pun',': '],['str','"Founder — building my own tech company"'],['pun',',\n    '],
+  ['key','"available_for"'],['pun',': '],['str','"client projects"'],['pun','\n  }\n}']
+];
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function renderAll(){
+  jsonEl.innerHTML = tokens.map(([c,t]) =>
+    '<span class="j-'+c+'">'+t.replace(/</g,'&lt;')+'</span>').join('');
+}
+
+if (reduce) { renderAll(); }
+else {
+  let ti = 0, ci = 0;
+  const cur = document.createElement('span'); cur.className = 'cursor';
+  jsonEl.appendChild(cur);
+  let span = null;
+  function type(){
+    if (ti >= tokens.length){ cur.remove(); return; }
+    const [cls, text] = tokens[ti];
+    if (!span){ span = document.createElement('span'); span.className = 'j-'+cls; jsonEl.insertBefore(span, cur); }
+    span.textContent += text[ci];
+    ci++;
+    if (ci >= text.length){ ti++; ci = 0; span = null; }
+    setTimeout(type, 14);
+  }
+  setTimeout(type, 400);
+}
+
+/* ---- scroll reveal ---- */
+const io = new IntersectionObserver((es) => {
+  es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
